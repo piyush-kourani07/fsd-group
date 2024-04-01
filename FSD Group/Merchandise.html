@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="Images/cup-hot-fill.png" type="image/x-icon">
+    <title>Cupful Delights</title>  
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-md sticky-top navbar-custom ">
+        <a class="navbar-brand mx-4" href="home.html">
+            <i class="bi bi-cup-hot-fill custom-icon-color"></i>
+            <span class="brand-text  " style=" font-family: 'Merienda One', cursive;">CupfulDelights</span>
+        </a>
+        <button class="navbar-toggler" type="button" aria-label="Toggle navigation" aria-expanded="false"
+            aria-controls="navbarNavDropdown" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end mx-2 " id="navbarNavDropdown">
+            <ul class="navbar-nav gap-3 ">
+                <li class="nav-item">
+                    <a class="nav-link desabled " href="home.html"
+                        >Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="menu.html">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="review.html">Review</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link rounded-1 " href="#" style="background-color: rgb(185, 157, 126); color:white;">Merchandise</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <div class="icon-container">
+            <a href="cart.html">
+
+                <i class="bi bi-cart px-3 py-2"></i>
+            </a>
+            <a href="user.html">
+                <i class="bi bi-person-fill px-3 py-2 mx-2"></i>
+            </a>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <h1 class="title  text-center mt-5 mb-5" style="color: rgb(185, 157, 126);">Merchandise</h1>
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <div class="card banner border-0 ">
+                    <img src="images/Right.png" class="card-img-top " alt="Product 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Delightful Brew Cup  </h5>
+                        <p class="card-text">Price: ₹ 250</p>
+                        <button class="btn  addToCartBtn w-100 " data-product="Instant Coffee" data-price="500"
+                            data-image="Right.png">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card banner border-0 ">
+                    <img src="images/phone.png" class="card-img-top " alt="Product 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Brew Haven iPhone Case</h5>
+                        <p class="card-text">Price: ₹ 900</p>
+                        <button class="btn  addToCartBtn w-100 " data-product="Vanilla Coffee" data-price="900"
+                            data-image="Context 1.png">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card banner border-0 ">
+                    <img src="images/tshirrt.png" class="card-img-top " alt="Product 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Cupful Comfort Tee</h5>
+                        <p class="card-text">Price: ₹ 1500</p>
+                        <button class="btn  addToCartBtn w-100 " data-product="Filter Coffee" data-price="1500"
+                            data-image="tshirrt.png">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+           
+            <!-- Add more product cards here -->
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const addToCartBtns = document.querySelectorAll('.addToCartBtn');
+            addToCartBtns.forEach(btn => {
+                btn.addEventListener('click', addToCart);
+            });
+        });
+
+        function addToCart(event) {
+            const product = event.target.getAttribute('data-product');
+            const price = parseFloat(event.target.getAttribute('data-price'));
+            const image = event.target.getAttribute('data-image');
+            let cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
+            cart.push({ product: product, price: price, image: image });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert('Product added to cart!');
+        }
+    </script>
+
+    <!-- Footer -->
+    
+    <!-- Footer Section -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col" style="text-align: left;">
+
+                    <p style="font-size: x-large; color: rgb(132, 132, 132);">Contact </p>
+                    <p style="color: rgba(0, 0, 0, 0.629);">
+                        <i class="bi bi-telephone-fill"></i>
+                        +123-456-7890
+                    </p>
+                    <p class="extra_link mt-4 " style="color: rgba(0, 0, 0, 0.629);">
+                        <i class="bi bi-envelope-fill" ></i>
+                        <a href="#" style="color: rgba(0, 0, 0, 0.629);"> CupfulDelights@Gmail.Com</a>
+                        <br /><br>
+                        <i class="bi bi-geo-alt-fill"></i>
+                        <a href="#" style="color: rgba(0, 0, 0, 0.629);">Ahmadabad, India 361001</a>
+                    </p>
+
+                </div>
+                <div class="col" style="text-align: left;">
+
+                    <p style="font-size: x-large; color: rgb(132, 132, 132);">Extra Links</p>
+
+                    <a href="#" class="extra_link" style="color: rgba(0, 0, 0, 0.629);">My Order</a>
+                    <br>
+                    <br>
+                    <a href="#" class="extra_link " style="color: rgba(0, 0, 0, 0.629);">My Favorite</a>
+                    <br>
+                    <br />
+                    <a href="#" class="extra_link" style="color: rgba(0, 0, 0, 0.629);">My Wishlist</a>
+                    <br>
+                    <br>
+                    <a href="#" class="extra_link" style="color: rgba(0, 0, 0, 0.629);">My Account</a>
+                    <br>
+                    <br>
+                    <a href="#" class="extra_link" style="color: rgba(0, 0, 0, 0.629);">Terms Or Use</a>
+                </div>
+                <div class="col" style="text-align: left;">
+                    <p style="font-size: x-large; color: rgb(132, 132, 132);">Useful Links</p>
+
+                    <a href="#" class="extra_link" style="color: rgba(0, 0, 0, 0.629);">Menu</a>
+                    <br>
+                    <br>
+                    <a href="#" class="extra_link" style="color: rgba(0, 0, 0, 0.629);">Location</a>
+                    <br>
+                    <br>
+                    <a href="#" class="extra_link" style="color: rgba(0, 0, 0, 0.629);">Events & Promotions</a>
+                    <br>
+                    <br>
+                    <a href="#" class="extra_link" style="color: rgba(0, 0, 0, 0.629);">FAQs</a>
+                    <br>
+                    <br>
+                    <a href="#" class="extra_link" style="color: rgba(0, 0, 0, 0.629);">Contact Us</a>
+                </div>
+                <div class="col" style="text-align: left;">
+                    <p style="font-size: x-large; color: rgb(132, 132, 132);">Newsletter</p>
+
+                    <form action="#">
+                        <input type="email" placeholder="Enter your email"/>
+                        <br>
+                        <br>
+                        <a href="#" class="subscribe text-decoration-none ">Subscribe</a>
+                    </form>
+                    <br>
+                    <div class="payment">
+                        <img src="images/payment_img.png" alt="payment" width="300px" height="300px" />
+
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </div>
+        <!-- Footer content here -->
+        <footer>
+            <div>
+                <div>
+                    <ul class="list-unstyled ">
+                        <li><a href="#">Privacy Policy</a><b> |</b>
+                            <a href="#">Terms of Service</a><b> |</b>
+                            &copy; 2024 CupfulDelights. All rights reserved &nbsp;<b> |</b>
+                            <a href="#">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+</body>
+</html>
